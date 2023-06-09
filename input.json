@@ -1,0 +1,108 @@
+{
+    "groupedAvailability": [
+      {
+        "currency": "Pesos",
+        "availability": [
+          {
+            "name": "Pesos",
+            "symbol": "ARS",
+            "amount": 602273.19,
+            "settlement": "INMEDIATA"
+          },
+          {
+            "name": "Pesos",
+            "symbol": "ARS",
+            "amount": 0,
+            "settlement": "A-24HS"
+          },
+          {
+            "name": "Pesos",
+            "symbol": "ARS",
+            "amount": -596169.25,
+            "settlement": "A-48HS"
+          }
+        ]
+      },
+      {
+        "currency": "Dolar Divisa | CCL",
+        "availability": [
+          {
+            "name": "Dolar Divisa | CCL",
+            "symbol": "USD",
+            "amount": 49.27,
+            "settlement": "INMEDIATA"
+          },
+          {
+            "name": "Dolar Divisa | CCL",
+            "symbol": "USD",
+            "amount": 0,
+            "settlement": "A-24HS"
+          },
+          {
+            "name": "Dolar Divisa | CCL",
+            "symbol": "USD",
+            "amount": 0,
+            "settlement": "A-48HS"
+          }
+        ]
+      },
+      {
+        "currency": "Dolar Billete | MEP",
+        "availability": [
+          {
+            "name": "Dolar Billete | MEP",
+            "symbol": "USD",
+            "amount": 13.02,
+            "settlement": "INMEDIATA"
+          },
+          {
+            "name": "Dolar Billete | MEP",
+            "symbol": "USD",
+            "amount": 0,
+            "settlement": "A-24HS"
+          },
+          {
+            "name": "Dolar Billete | MEP",
+            "symbol": "USD",
+            "amount": 0,
+            "settlement": "A-48HS"
+          }
+        ]
+      }
+    ],
+    "groupedInstruments": [
+      {
+        "name": "BONOS",
+        "instruments": [
+          {
+            "ticker": "GD30",
+            "description": "Bonos Globales Argentina USD Step Up 2030",
+            "currency": "Pesos",
+            "price": 142.25,
+            "amount": 596027.5
+          }
+        ],
+        "groupedValue": 596027.5
+      },
+      {
+        "name": "CEDEARS",
+        "instruments": [
+          {
+            "ticker": "SPY",
+            "description": "Spdr S&P 500",
+            "currency": "Pesos",
+            "price": 10550,
+            "amount": 3829650
+          },
+          {
+            "ticker": "TSLA",
+            "description": "Tesla",
+            "currency": "Pesos",
+            "price": 7398,
+            "amount": 6968916
+          }
+        ],
+        "groupedValue": 10798566
+      }
+    ]
+  }

@@ -1,31 +1,32 @@
 const fs = require ('fs')
 let inArray=[]
-let obj=[]
-function getFile(){
+let obj={}
+
+
+function getFile(){ //funcion que retorna toda la info en un arreglo llamado inArray
   let info = JSON.parse(fs.readFileSync("./input.json",'utf-8'))
   inArray.push(info)
   return inArray
 }
 
-function arrayGroupedAvailability(){
+
+function transformObject(){ 
   getFile()
-  const array1=[]
   inArray[0].groupedAvailability.forEach(element => {
-    array1.push(element.availability[0].amount)
+    obj[element.currency]= element.availability[0].amount
   }) 
-  return array1;
+  inArray[0].groupedInstruments.forEach(item => {
+    var instrumentsObj = {};
+    item.instruments.forEach(instrument => {
+      instrumentsObj[instrument.ticker] = {
+        amount: instrument.amount,
+        units: Math.floor(instrument.amount / instrument.price)
+      };
+    });
+    obj[item.name] = instrumentsObj;
+  });
+
+  return obj
 }
 
-
-// function outFile(){
-//   getFile()
-//   let pesos=inArray[0].groupedAvailability[0].availability[0].amount
-//   let dolarDivisa=inArray[0].groupedAvailability[1].availability[0].amount
-//   let dolarBillete=inArray[0].groupedAvailability[2].availability[0].amount
-//   obj={pesos:pesos,
-//       dolarDivisa:dolarDivisa,
-//       dolarBillete:dolarBillete}
-//   return obj
-  
-// }
-console.log(arrayGroupedAvailability())
+console.log(JSON.stringify(transformObject()));

@@ -1,21 +1,19 @@
 const fs = require ('fs')
-let inArray=[]
-let obj={}
+
+let newObj={}
 
 
 function getFile(){ //funcion que retorna toda la info en un arreglo llamado inArray
   let info = JSON.parse(fs.readFileSync("./input.json",'utf-8'))
-  inArray.push(info)
-  return inArray
+  return info
 }
 
 
-function transformObject(){ 
-  getFile()
-  inArray[0].groupedAvailability.forEach(element => {
-    obj[element.currency]= element.availability[0].amount
+function transformObject(originalObj){ 
+  originalObj.groupedAvailability.forEach(element => {
+    newObj[element.currency]= element.availability[0].amount
   }) 
-  inArray[0].groupedInstruments.forEach(item => {
+  originalObj.groupedInstruments.forEach(item => {
     var instrumentsObj = {};
     item.instruments.forEach(instrument => {
       instrumentsObj[instrument.ticker] = {
@@ -23,10 +21,11 @@ function transformObject(){
         units: Math.floor(instrument.amount / instrument.price)
       };
     });
-    obj[item.name] = instrumentsObj;
+    newObj[item.name] = instrumentsObj;
   });
 
-  return obj
+  return newObj
 }
 
-console.log(JSON.stringify(transformObject()));
+
+console.log (transformObject(getFile()))
